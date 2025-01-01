@@ -1,0 +1,97 @@
+<div class="container" [ngClass]="{ 'edit-mode': edicion, 'register-mode': !edicion }" style="text-align: center; margin: 2%">
+
+    <div> <h1>{{ edicion ? 'Actualizar Tarea' : 'Registrar Tarea' }}</h1></div>
+    <div>
+      <form [formGroup]="form" (submit)=" insertar()" class="Tareas-form">
+
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Código</mat-label>
+          <input matInput formControlName="hid" readonly />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Titulo</mat-label>
+          <input formControlName="htitulo" />
+          <mat-error *ngIf="form.controls['htitulo'].hasError('required')">
+            El Titulo es obligatoria
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Descripcion</mat-label>
+            <input formControlName="hdescripcion" />
+            <mat-error *ngIf="form.controls['hdescripcion'].hasError('required')">
+              La Descripcion es obligatorio
+            </mat-error>
+          </mat-form-field>
+          <br />
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Estado</mat-label>
+            <input formControlName="hestado" />
+            <mat-error *ngIf="form.controls['hestado'].hasError('required')">
+              El estado es obligatorio
+            </mat-error>
+          </mat-form-field>
+          <br />
+        
+        
+        <mat-form-field>
+          <mat-label>fecha limite</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="hfecha_limite"/>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="form.controls['hfecha_limite'].hasError('required')">
+            La fecha limite es obligatoria
+          </mat-error>
+         
+        <br>
+
+
+          <mat-form-field>
+            <mat-label>fecha actualizacion</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="hfecha_actualizacion"/>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker1"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error *ngIf="form.controls['hfecha_actualizacion'].hasError('required')">
+              La fecha de actualizacion es obligatoria
+            </mat-error>
+        
+        </mat-form-field>
+
+          <br>
+          
+          <mat-form-field>
+            <mat-label>Usuario</mat-label>
+            <mat-select formControlName="hidusuario" >
+              @for (u of listausuarios; track u) {
+              <mat-option [value]="u.id">{{ u.username }}</mat-option>
+              }
+            </mat-select>
+            <mat-error *ngIf="form.controls['hidusuario'].hasError('required')">
+              Se necesita un usuario
+            </mat-error>
+          </mat-form-field>
+  
+          <div class="button-container">
+            <button
+              mat-flat-button
+              color="primary"
+              type="submit"
+              [disabled]="!form.valid"
+            >
+              {{ edicion ? 'Actualizar' : 'Registrar' }}
+            </button>
+          </div>
+      </form>
+    </div>
+  </div>

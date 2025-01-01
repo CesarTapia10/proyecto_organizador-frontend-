@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,21 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'proyecto_organizador';
+  role: string = '';
+  constructor(private loginService: LoginService) {}
+  cerrar() {
+    sessionStorage.clear();
+  }
+
+  verificar() {
+    this.role = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+  esAdministrador() {
+    return this.role === 'ADMINISTRADOR';
+  }
+
+  esUsuario(){
+    return this.role === 'USUARIO';
+  }
 }
