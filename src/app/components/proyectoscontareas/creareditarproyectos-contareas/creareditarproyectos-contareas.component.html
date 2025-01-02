@@ -1,1 +1,86 @@
-<p>creareditarproyectos-contareas works!</p>
+<div class="container" [ngClass]="{ 'edit-mode': edicion, 'register-mode': !edicion }" style="text-align: center; margin: 2%">
+
+    <div> <h1>{{ edicion ? 'Actualizar proyecto con tareas' : 'Registrar proyecto con tareas' }}</h1></div>
+    <div>
+      <form [formGroup]="form" (submit)=" insertar()" class="proyectosconTareas-form">
+
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Código</mat-label>
+          <input matInput formControlName="hid" readonly />
+        </mat-form-field>
+
+        
+        <mat-form-field>
+          <mat-label>fecha creacion</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="hfecha_creacion"/>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="form.controls['hfecha_creacion'].hasError('required')">
+            La fecha de creacion es obligatoria
+          </mat-error>
+         
+        <br>
+
+
+          <mat-form-field>
+            <mat-label>fecha de modificacion</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="hfecha_modifiacion"/>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker1"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error *ngIf="form.controls['hfecha_modifiacion'].hasError('required')">
+              La fecha de modificacion es obligatoria
+            </mat-error>
+        
+        </mat-form-field>
+
+          <br>
+          
+          <mat-form-field>
+            <mat-label>proyectos</mat-label>
+            <mat-select formControlName="hproyectos" >
+              @for (p of listaproyectos; track p) {
+              <mat-option [value]="u.id">{{ p.nombre }}</mat-option>
+              }
+            </mat-select>
+            <mat-error *ngIf="form.controls['hproyectos'].hasError('required')">
+              Se necesita un proyecto
+            </mat-error>
+          </mat-form-field>
+
+          
+          <br>
+          
+          <mat-form-field>
+            <mat-label>Tarea</mat-label>
+            <mat-select formControlName="htareas" >
+              @for (t of listatareas; track t) {
+              <mat-option [value]="t.id">{{ t.titulo }}</mat-option>
+              }
+            </mat-select>
+            <mat-error *ngIf="form.controls['htareas'].hasError('required')">
+              Se necesita una tarea
+            </mat-error>
+          </mat-form-field>
+  
+          <div class="button-container">
+            <button
+              mat-flat-button
+              color="primary"
+              type="submit"
+              [disabled]="!form.valid"
+            >
+              {{ edicion ? 'Actualizar' : 'Registrar' }}
+            </button>
+          </div>
+      </form>
+    </div>
+  </div>
+
