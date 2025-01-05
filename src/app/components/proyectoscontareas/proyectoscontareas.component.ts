@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
-import { ListarproyectosComponent } from '../proyectos/listarproyectos/listarproyectos.component';
+import { ListarproyectoscontareasComponent } from './listarproyectoscontareas/listarproyectoscontareas.component';
 
 @Component({
   selector: 'app-proyectoscontareas',
-  imports: [RouterOutlet, ListarproyectosComponent],
+  imports: [RouterOutlet, ListarproyectoscontareasComponent],
   templateUrl: './proyectoscontareas.component.html',
   styleUrl: './proyectoscontareas.component.css'
 })
