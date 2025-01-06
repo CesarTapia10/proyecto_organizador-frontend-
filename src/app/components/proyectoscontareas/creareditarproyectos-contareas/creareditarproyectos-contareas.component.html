@@ -47,7 +47,7 @@
             <mat-label>proyectos</mat-label>
             <mat-select formControlName="hproyectos" >
               @for (p of listaproyectos; track p) {
-              <mat-option [value]="u.id">{{ p.nombre }}</mat-option>
+              <mat-option [value]="p.id">{{ p.nombre }}</mat-option>
               }
             </mat-select>
             <mat-error *ngIf="form.controls['hproyectos'].hasError('required')">
