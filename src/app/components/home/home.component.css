@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8bdbd; 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh; 
+  }
+  
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  
+  .carousel {
+    display: flex;
+    animation: slide 15s infinite linear;
+  }
+  
+  .carousel img {
+    width: 100%;
+    max-width: 200px;
+    max-height: 160px;
+    margin: 0 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-25%); }
+    50% { transform: translateX(-50%); }
+    75% { transform: translateX(-75%); }
+    100% { transform: translateX(0); }
+  }
+  
+  .action-button {
+    display: block;
+    width: 150px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #d32f2f; /* Rojo */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: darkred;
+  }
+  
+  .empty-button {
+    display: block; /* Cambia a bloque para que los botones estén uno debajo del otro */
+    width: 120px;
+    padding: 10px;
+    margin: 10px auto; /* Centra el botón y agrega margen superior/inferior */
+    color: #d32f2f;
+    background-color: transparent;
+    border: 2px solid #d32f2f;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .empty-button:hover {
+    background-color: #d32f2f;
+    color: #ffffff;
+  }
+  
+  .content-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .welcome-box, .center-box {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px; 
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  

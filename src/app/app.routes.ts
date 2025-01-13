@@ -44,7 +44,7 @@ export const routes: Routes = [
             component: CreareditarusuariosComponent,
           },
           {
-            path: 'edicionUsuario/:id',
+            path: 'ediciones/:id',
             component: CreareditarusuariosComponent,
           },
         ],
@@ -59,7 +59,7 @@ export const routes: Routes = [
             component: CreareditarTareasComponent,
           },
           {
-            path: 'edicionesRoles/:id',
+            path: 'ediciones/:id',
             component: CreareditarTareasComponent,
           },
         ],

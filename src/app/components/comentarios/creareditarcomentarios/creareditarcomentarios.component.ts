@@ -58,8 +58,8 @@ export class CreareditarcomentariosComponent {
       hid:[''],
       hcontenido: ['', Validators.required],
       hfecha_creacion: ['', Validators.required],
-      htareas: ['', Validators.requiredTrue],
-      huser: ['', Validators.requiredTrue],
+      htareas: ['', Validators.required],
+      huser: ['', Validators.required],
       
       
     });

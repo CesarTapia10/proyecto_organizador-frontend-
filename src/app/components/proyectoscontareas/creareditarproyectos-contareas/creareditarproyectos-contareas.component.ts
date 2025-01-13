@@ -62,8 +62,8 @@ export class CreareditarproyectosContareasComponent {
       hid:[''],
       hfecha_creacion: ['', Validators.required],
       hfecha_modifiacion: ['', Validators.required],
-      hproyectos: ['', Validators.requiredTrue],
-      htareas: ['', Validators.requiredTrue],
+      hproyectos: ['', Validators.required],
+      htareas: ['', Validators.required],
    
       
     });

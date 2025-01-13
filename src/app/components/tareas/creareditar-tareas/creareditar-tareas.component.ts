@@ -40,6 +40,12 @@ export class CreareditarTareasComponent {
 
   id: number = 0;
   edicion: boolean = false;
+  
+
+  estado: { value: string; viewValue: string }[] = [
+    { value: 'realizado', viewValue: 'realizado' },
+    { value: 'no realizado', viewValue: 'no realizado' },
+  ];
 
   constructor(
     private tS: TareasService,
@@ -61,10 +67,10 @@ export class CreareditarTareasComponent {
       hid:[''],
       htitulo: ['', Validators.required],
       hdescripcion: ['', Validators.required],
-      hestado: ['', Validators.requiredTrue],
-      hfecha_limite: ['', Validators.requiredTrue],
-      hfecha_creacion: ['', Validators.requiredTrue],
-      hfecha_actualizacion: ['', Validators.requiredTrue],
+      hestado: ['', Validators.required],
+      hfecha_limite: ['', Validators.required],
+      hfecha_creacion: [''],
+      hfecha_actualizacion: ['', Validators.required],
       hidusuario: ['', Validators.required],
       
     });
@@ -98,10 +104,10 @@ export class CreareditarTareasComponent {
           })
         });
       }
-     
+      
       
     }
-    this.router.navigate(['tarea'])
+    this.router.navigate(['tareas'])
   }
   init() {
     if (this.edicion) {

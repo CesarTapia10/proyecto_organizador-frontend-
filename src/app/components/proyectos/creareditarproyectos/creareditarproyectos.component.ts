@@ -9,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { Proyectos } from '../../../models/Proyectos';
 import { ProyectosService } from '../../../services/proyectos.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-creareditarproyectos',
@@ -18,6 +19,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
     CommonModule,
   ],
@@ -50,8 +52,8 @@ export class CreareditarproyectosComponent {
 
     this.form = this.formBuilder.group({
       hid:[''],
-      hnombre: ['', Validators.requiredTrue],
-      hdecripcion: ['', Validators.requiredTrue],
+      hnombre: ['', Validators.required],
+      hdecripcion: ['', Validators.required],
       hfecha_creacion: ['', Validators.required],
       hfecha_modifiacion: ['', Validators.required],
    

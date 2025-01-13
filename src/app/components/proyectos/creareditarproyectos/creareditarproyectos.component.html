@@ -1,6 +1,8 @@
 <div class="container" [ngClass]="{ 'edit-mode': edicion, 'register-mode': !edicion }" style="text-align: center; margin: 2%">
 
-    <div> <h1>{{ edicion ? 'Actualizar proyecto ' : 'Registrar proyecto' }}</h1></div>
+    <div> 
+      <h1>{{ edicion ? 'Actualizar proyecto ' : 'Registrar proyecto' }}</h1>
+    </div>
     <div>
       <form [formGroup]="form" (submit)=" insertar()" class="proyectos-form">
 
@@ -8,14 +10,17 @@
           <mat-label>Código</mat-label>
           <input matInput formControlName="hid" readonly />
         </mat-form-field>
+        
+       <br>
 
-        <mat-form-field class="example-full-width">
+           <mat-form-field class="example-full-width">
             <mat-label>nombre</mat-label>
             <input formControlName="hnombre" />
             <mat-error *ngIf="form.controls['hnombre'].hasError('required')">
               El nombre es obligatorio
             </mat-error>
           </mat-form-field>
+
           <br />
   
           <mat-form-field class="example-full-width">
@@ -24,7 +29,8 @@
               <mat-error *ngIf="form.controls['hdecripcion'].hasError('required')">
                 La Descripcion es obligatorio
               </mat-error>
-            </mat-form-field>
+          </mat-form-field>
+
             <br />
         
         <mat-form-field>
@@ -39,8 +45,9 @@
           <mat-error *ngIf="form.controls['hfecha_creacion'].hasError('required')">
             La fecha de creacion es obligatoria
           </mat-error>
-         
-        <br>
+        </mat-form-field>
+
+        <br/>
 
 
           <mat-form-field>
@@ -55,8 +62,8 @@
             <mat-error *ngIf="form.controls['hfecha_modifiacion'].hasError('required')">
               La fecha de modificacion es obligatoria
             </mat-error>
-        
-        </mat-form-field>
+          </mat-form-field>
+      
 
           <br>
           
