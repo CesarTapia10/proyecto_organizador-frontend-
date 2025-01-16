@@ -1,9 +1,9 @@
 export class Proyectos {
-    id: number = 0
+    id: number = 0;
 
-     nombre: string = ''
+     nombre: string = '';
 
-     decripcion: string = ''
+     decripcion: string = '';
 
      fecha_creacion: Date = new Date(Date.now());
 

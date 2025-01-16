@@ -86,8 +86,8 @@ export class CreareditarproyectosContareasComponent {
       this.proyectoscontareas.id= this.form.value.hid;
       this.proyectoscontareas.fecha_creacion=this.form.value.hfecha_creacion;
       this.proyectoscontareas.fecha_modifiacion=this.form.value.hfecha_modifiacion;
-      this.proyectoscontareas.proyectos=this.form.value.hproyectos;
-      this.proyectoscontareas.tareas=this.form.value.htareas;
+      this.proyectoscontareas.proyectos.id=this.form.value.hproyectos;
+      this.proyectoscontareas.tareas.id=this.form.value.htareas;
     
 
 
@@ -107,9 +107,9 @@ export class CreareditarproyectosContareasComponent {
         });
       }
      
-      
+      this.router.navigate(['proyectoscontareas'])
     }
-    this.router.navigate(['Proyectos-tareas'])
+ 
   }
   init() {
     if (this.edicion) {

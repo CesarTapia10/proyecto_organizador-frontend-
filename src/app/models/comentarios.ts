@@ -3,15 +3,15 @@ import { Usuario } from "./Usuario";
 
 export class comentarios {
 
-    id:number = 0
+    id:number = 0;
 
     contenido: string = "";
 
-    fecha_creacion: Date = new Date(Date.now())
+    fecha_creacion: Date = new Date(Date.now());
 
 
-    tareas: Tareas= new Tareas()
+    tareas: Tareas= new Tareas();
 
 
-    user: Usuario= new Usuario()
+    user: Usuario= new Usuario();
 }

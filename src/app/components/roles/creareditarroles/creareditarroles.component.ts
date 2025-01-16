@@ -37,7 +37,7 @@ export class CreareditarrolesComponent implements OnInit {
   userId: Usuario[]=[]
   listaRoles:{value: string; viewValue: string}[]=[
     {value:'ADMINISTRADOR',   viewValue:'ADMINISTRADOR'},
-    {value:'CREADOR', viewValue: 'CREADOR'}
+    {value:'USUARIO', viewValue: 'USUARIO'}
   ];
   constructor(
     private rS: RolesService,

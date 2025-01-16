@@ -18,8 +18,9 @@ import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
-    RouterOutlet,
+   
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,

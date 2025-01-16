@@ -23,7 +23,8 @@ import { CreareditarrolesComponent } from './components/roles/creareditarroles/c
 
 
 export const routes: Routes = [
-    {
+  
+     {
         path: '',
         component: LandingPageComponent,
       },
@@ -44,7 +45,7 @@ export const routes: Routes = [
             component: CreareditarusuariosComponent,
           },
           {
-            path: 'ediciones/:id',
+            path: 'edicionUsuario/:id',
             component: CreareditarusuariosComponent,
           },
         ],
@@ -66,7 +67,7 @@ export const routes: Routes = [
         canActivate: [seguridadGuard],
       },
       {
-        path: 'Proyectos',
+        path: 'proyectos',
         component: ProyectosComponent,
         children: [
           {
@@ -82,7 +83,7 @@ export const routes: Routes = [
       },
 
       {
-        path: 'Proyectos-tareas',
+        path: 'proyectoscontareas',
         component: ProyectoscontareasComponent,
         children: [
           {

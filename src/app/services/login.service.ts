@@ -4,15 +4,15 @@ import { HttpClient } from '@angular/common/http';
 import { JwtRequest } from '../models/JwtRequest';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = environment.base;
 
   constructor(private http: HttpClient) {}
   login(request: JwtRequest) {
-    return this.http.post(`${this.apiUrl}/login`, request);
+    return this.http.post('http://localhost:8081/login', request);
   }
   verificar() {
     let token = sessionStorage.getItem('token');

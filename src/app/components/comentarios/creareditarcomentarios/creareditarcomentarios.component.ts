@@ -75,8 +75,8 @@ export class CreareditarcomentariosComponent {
       this.comentarios.id= this.form.value.hid;
       this.comentarios.contenido=this.form.value.hcontenido;
       this.comentarios.fecha_creacion=this.form.value.hfecha_creacion;
-      this.comentarios.tareas=this.form.value.htareas;
-      this.comentarios.user=this.form.value.huser;
+      this.comentarios.tareas.id=this.form.value.htareas;
+      this.comentarios.user.id=this.form.value.huser;
      
 
 

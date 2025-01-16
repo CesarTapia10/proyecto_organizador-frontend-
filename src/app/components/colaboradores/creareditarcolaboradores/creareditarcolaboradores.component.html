@@ -1,63 +1,58 @@
-<div class="container" [ngClass]="{ 'edit-mode': edicion, 'register-mode': !edicion }" style="text-align: center; margin: 2%">
-
-    <div> <h1>{{ edicion ? 'Actualizar colaboradores' : 'Registrar colaboradores' }}</h1></div>
-    <div>
-      <form [formGroup]="form" (submit)=" insertar()" class="colaboradores-form">
-
-        <mat-form-field class="example-full-width" *ngIf="edicion">
-          <mat-label>Código</mat-label>
-          <input matInput formControlName="hid" readonly />
-        </mat-form-field>
-
-       <br>
-        <mat-form-field class="example-full-width">
-          <mat-label>representacion</mat-label>
-          <input formControlName="hrepresentacion" />
-          <mat-error *ngIf="form.controls['hrepresentacion'].hasError('required')">
-            La representacion es obligatoria
-          </mat-error>
-        </mat-form-field>
-        <br />
-
-
-
-        <mat-form-field>
-            <mat-label>proyectos</mat-label>
-            <mat-select formControlName="hproyectos" >
-              @for (p of listarproyectos; track p) {
-              <mat-option [value]="p.id">{{ p.nombre }}</mat-option>
-              }
-            </mat-select>
-            <mat-error *ngIf="form.controls['hproyectos'].hasError('required')">
-              Se necesita un proyecto
-            </mat-error>
-          </mat-form-field>
-
-          <br>
-          
-          <mat-form-field>
-            <mat-label>Usuario</mat-label>
-            <mat-select formControlName="hidusuario" >
-              @for (u of listausuarios; track u) {
-              <mat-option [value]="u.id">{{ u.username }}</mat-option>
-              }
-            </mat-select>
-            <mat-error *ngIf="form.controls['hidusuario'].hasError('required')">
-              Se necesita un usuario
-            </mat-error>
-          </mat-form-field>
-  
-          <div class="button-container">
-            <button
-              mat-flat-button
-              color="primary"
-              type="submit"
-              [disabled]="!form.valid"
-            >
-              {{ edicion ? 'Actualizar' : 'Registrar' }}
-            </button>
-          </div>
-      </form>
-    </div>
+<div class="container" [ngClass]="{ 'edit-mode': edicion, 'register-mode': !edicion }">
+  <div>
+    <h1>{{ edicion ? 'Actualizar colaboradores' : 'Registrar colaboradores' }}</h1>
   </div>
 
+  <div>
+    <form [formGroup]="form" (submit)="insertar()" class="colaboradores-form">
+      <!-- Campo Código -->
+      <mat-form-field class="form-field" *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="hid" readonly />
+      </mat-form-field>
+
+      <!-- Campo Representación -->
+      <mat-form-field class="form-field">
+        <mat-label>Representación</mat-label>
+        <input matInput formControlName="hrepresentacion" />
+        <mat-error *ngIf="form.controls['hrepresentacion'].hasError('required')">
+          La representación es obligatoria
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Campo Proyectos -->
+      <mat-form-field class="form-field">
+        <mat-label>Proyectos</mat-label>
+        <mat-select formControlName="hproyectos">
+          <mat-option *ngFor="let p of listarproyectos" [value]="p.id">{{ p.nombre }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls['hproyectos'].hasError('required')">
+          Se necesita un proyecto
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Campo Usuario -->
+      <mat-form-field class="form-field">
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="hidusuario">
+          <mat-option *ngFor="let u of listausuarios" [value]="u.id">{{ u.username }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls['hidusuario'].hasError('required')">
+          Se necesita un usuario
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Botón -->
+      <div class="button-container">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

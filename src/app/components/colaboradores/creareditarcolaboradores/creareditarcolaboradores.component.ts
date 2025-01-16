@@ -73,8 +73,8 @@ export class CreareditarcolaboradoresComponent {
     if (this.form.valid) {
       this.colaboladores.id= this.form.value.hid;
       this.colaboladores.representacion=this.form.value.hrepresentacion;
-      this.colaboladores.proyectos=this.form.value.hproyectos;
-      this.colaboladores.user=this.form.value.hidusuario;
+      this.colaboladores.proyectos.id=this.form.value.hproyectos;
+      this.colaboladores.user.id=this.form.value.hidusuario;
 
 
 
@@ -93,9 +93,9 @@ export class CreareditarcolaboradoresComponent {
         });
       }
      
-      
+      this.router.navigate(['colaboradores'])
     }
-    this.router.navigate(['colaboradores'])
+
   }
   init() {
     if (this.edicion) {

@@ -1,21 +1,22 @@
 export class Usuario {
-    id:number=0
+    id:number=0;
 
 
-    username:string=""
+    username:string="";
 
 
-    email:string=""
+    email:string="";
 
 
-    pais:string=""
+    pais:string="";
 
 
-    password:string=""
+    password:string="";
 
-    enabled:boolean=false
+    enabled:boolean=true;
+    
 
-    fecha_registro:Date = new Date(Date.now())
+    fecha_registro:Date = new Date(Date.now());
 
-    fecha_modificacion:Date = new Date(Date.now())
+    fecha_modificacion:Date = new Date(Date.now());
 }

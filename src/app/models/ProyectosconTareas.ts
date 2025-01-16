@@ -8,7 +8,7 @@ export class ProyectosconTareas {
 
     fecha_modifiacion: Date = new Date(Date.now());
 
-    proyectos: Proyectos= new Proyectos()
+    proyectos: Proyectos= new Proyectos();
 
-    tareas:Tareas= new Tareas()
+    tareas:Tareas= new Tareas();
 }

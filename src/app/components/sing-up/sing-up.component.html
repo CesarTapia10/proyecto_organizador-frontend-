@@ -18,6 +18,18 @@
                       <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
                   </button>
               </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Pais</mat-label>
+                <mat-select formControlName="hpais">
+                  <mat-option *ngFor="let p of listapaises" [value]="p.value">
+                    {{ p.viewValue }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('hpais')?.hasError('required')"
+                  >El Pais es obligatorio </mat-error
+                >
+              </mat-form-field>
               
               <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Email</mat-label>

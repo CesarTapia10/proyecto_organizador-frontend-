@@ -94,7 +94,7 @@ export class CreareditarproyectosComponent {
      
       
     }
-    this.router.navigate(['Proyectos'])
+    this.router.navigate(['proyectos'])
   }
   init() {
     if (this.edicion) {

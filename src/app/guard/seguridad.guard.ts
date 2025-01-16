@@ -2,6 +2,8 @@ import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } fr
 import { LoginService } from '../services/login.service';
 import { inject } from '@angular/core';
 
+
+
 export const seguridadGuard= (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot

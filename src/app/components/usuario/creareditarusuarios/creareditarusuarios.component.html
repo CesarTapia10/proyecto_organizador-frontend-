@@ -6,6 +6,9 @@
 
     </div>
     <div>
+        <h1>{{ edicion ? 'Actualizar usario' : 'Registrar usuario' }}</h1>
+      </div>
+    <div>
         <form [formGroup]="form" (submit)="insertar()" style="display: flex; flex-direction: column; gap:15px">
 
 
@@ -16,26 +19,35 @@
 
             <mat-form-field class="example-full-witdth" appearance="fill">
                 <mat-label> Nombre Usuario</mat-label>
-                <input matInput placeholder="Usuario1" formControlName="hnombre"/>
+                <input matInput placeholder="Usuario1" formControlName="husername"/>
+                <mat-error *ngIf="form.controls['husername'].hasError('required')">
+                    El nombre de usuario es obligatorio
+                  </mat-error>
 
             </mat-form-field>
-            <mat-form-field class="example-full-width" apperance="fill">
-                <mat-label> Ingrese su contraseña</mat-label>
-                <input matInput [type]="showPassword ? 'text' : 'password' " placeholder="********" formControlName="hpassword"/>
-                <button type="buttom" mat-icon-button matSuffix (click)= "showPassword = !showPassword">
+            
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Ingrese su contraseña</mat-label>
+                <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="********" formControlName="hpassword" />
+                <button type="button" mat-icon-button matSuffix (click)="showPassword = !showPassword">
                     <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
-
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Email</mat-label>
                 <input matInput placeholder="pat@example.com" formControlName="hmail" />
+                <mat-error *ngIf="form.controls['hmail'].hasError('required')">
+                    El email es obligatorio
+                  </mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Pais</mat-label>
                 <input matInput placeholder="Peru" formControlName="hpais" />
+                <mat-error *ngIf="form.controls['hpais'].hasError('required')">
+                    El pais es obligatorio
+                  </mat-error>
             </mat-form-field>
 
 
@@ -44,12 +56,21 @@
                 <input matInput [matDatepicker]="picker" formControlName="hfecha_modificacion" placeholder="MM/DD/YYYY">
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="form.controls['hfecha_modificacion'].hasError('required')">
+                    La fecha modificacion es obligatorio
+                  </mat-error>
             </mat-form-field>
 
  
             <div style="text-align: center; margin-top: 20px;">
-                <button mat-flat-button color="primary" class="custom-button"
-                    style="padding: 10px 20px; background-color: #3f51b5; color: white; font-size: 16px;">Editar</button>
+                <button 
+                mat-flat-button 
+                color="primary"
+                type="submit"
+                [disabled]="!form.valid"
+               >
+               {{ edicion ? 'Actualizar' : 'Registrar' }}
+             </button>
             </div>
 
         </form>

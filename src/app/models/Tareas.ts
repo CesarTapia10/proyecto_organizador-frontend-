@@ -9,11 +9,11 @@ export class Tareas {
 
     estado: string = "";
 
-    fecha_limite:Date= new Date(Date.now())
+    fecha_limite:Date= new Date(Date.now());
 
-    fecha_creacion:Date= new Date(Date.now())
+    fecha_creacion:Date= new Date(Date.now());
 
-    fecha_actualizacion:Date= new Date(Date.now())
+    fecha_actualizacion:Date= new Date(Date.now());
 
-    user: Usuario= new Usuario()
+    user: Usuario= new Usuario();
 }

@@ -83,7 +83,7 @@ export class CreareditarusuariosComponent implements OnInit{
           });
         });
       } else {
-        this.uS.insertNoAuth(this.usuario).subscribe((data) => {
+        this.uS.insert(this.usuario).subscribe((data) => {
           this.uS.list().subscribe((data) => {
             this.uS.setList(data);
           });

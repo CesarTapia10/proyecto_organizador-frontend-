@@ -7,15 +7,20 @@ import { Subject } from 'rxjs';
 
 const base_url = environment.base;
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class ColaboradoresService {
 
+
   private url = `${base_url}/colaboradores`;
   private listaCambio = new Subject<Colaboradores[]>();
 
   constructor(private http: HttpClient) { }
+
+  
   list() {
     return this.http.get<Colaboradores[]>(this.url);
   }

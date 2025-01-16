@@ -1,78 +1,65 @@
-<div class="container" [ngClass]="{ 'edit-mode': edicion, 'register-mode': !edicion }" style="text-align: center; margin: 2%">
-
-    <div> <h1>{{ edicion ? 'Actualizar comentario' : 'Registrar comentario' }}</h1></div>
-    <div>
-      <form [formGroup]="form" (submit)=" insertar()" class="comentario-form">
-
-        <mat-form-field class="example-full-width" *ngIf="edicion">
-          <mat-label>Código</mat-label>
-          <input matInput formControlName="hid" readonly />
-        </mat-form-field>
-        <br>
-
-        <mat-form-field class="example-full-width">
-          <mat-label>Contenido</mat-label>
-          <input formControlName="hcontenido" />
-          <mat-error *ngIf="form.controls['hcontenido'].hasError('required')">
-            El contenido es obligatoria
-          </mat-error>
-        </mat-form-field>
-        <br />
-
-          <mat-form-field>
-            <mat-label>fecha creacion</mat-label>
-            <input matInput [matDatepicker]="picker1" formControlName="hfecha_creacion"/>
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle
-              matIconSuffix
-              [for]="picker1"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-            <mat-error *ngIf="form.controls['hfecha_creacion'].hasError('required')">
-              La fecha de creacion es obligatoria
-            </mat-error>
-        
-        </mat-form-field>
-
-        
-        <br>
-          
-        <mat-form-field>
-          <mat-label>Tareas</mat-label>
-          <mat-select formControlName="htareas" >
-            @for (t of listartarea; track t) {
-            <mat-option [value]="t.id">{{ t.titulo }}</mat-option>
-            }
-          </mat-select>
-          <mat-error *ngIf="form.controls['htareas'].hasError('required')">
-            Se necesita una tarea
-          </mat-error>
-        </mat-form-field>
-
-          <br>
-          
-          <mat-form-field>
-            <mat-label>Usuario</mat-label>
-            <mat-select formControlName="hidusuario" >
-              @for (u of listausuarios; track u) {
-              <mat-option [value]="u.id">{{ u.username }}</mat-option>
-              }
-            </mat-select>
-            <mat-error *ngIf="form.controls['hidusuario'].hasError('required')">
-              Se necesita un usuario
-            </mat-error>
-          </mat-form-field>
-  
-          <div class="button-container">
-            <button
-              mat-flat-button
-              color="primary"
-              type="submit"
-              [disabled]="!form.valid"
-            >
-              {{ edicion ? 'Actualizar' : 'Registrar' }}
-            </button>
-          </div>
-      </form>
-    </div>
+<div class="container" [ngClass]="{ 'edit-mode': edicion, 'register-mode': !edicion }">
+  <div>
+    <h1>{{ edicion ? 'Actualizar comentario' : 'Registrar comentario' }}</h1>
   </div>
+
+  <div>
+    <form [formGroup]="form" (submit)="insertar()" class="comentario-form">
+      <!-- Campo Código -->
+      <mat-form-field class="form-field" *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="hid" readonly />
+      </mat-form-field>
+
+      <!-- Campo Contenido -->
+      <mat-form-field class="form-field">
+        <mat-label>Contenido</mat-label>
+        <input matInput formControlName="hcontenido" />
+        <mat-error *ngIf="form.controls['hcontenido'].hasError('required')">
+          El contenido es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Campo Fecha de Creación -->
+      <mat-form-field class="form-field">
+        <mat-label>Fecha de creación</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="hfecha_creacion" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="form.controls['hfecha_creacion'].hasError('required')">
+          La fecha de creación es obligatoria
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Campo Tareas -->
+      <mat-form-field class="form-field">
+        <mat-label>Tareas</mat-label>
+        <mat-select formControlName="htareas">
+          <mat-option *ngFor="let t of listartarea" [value]="t.id">{{ t.titulo }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls['htareas'].hasError('required')">
+          Se necesita una tarea
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Campo Usuario -->
+      <mat-form-field class="form-field">
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="huser">
+          <mat-option *ngFor="let u of listausuarios" [value]="u.id">{{ u.username }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls['huser'].hasError('required')">
+          Se necesita un usuario
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Botón -->
+      <div class="button-container">
+        <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

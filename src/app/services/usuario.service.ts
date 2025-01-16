@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Subject, tap } from 'rxjs';
 import { Usuario } from '../models/Usuario';
 
 const base_url = environment.base;
@@ -46,7 +46,5 @@ export class UsuarioService {
     return this.http.get<Usuario>(`${this.url}/NoAuth${email}`);
   }
 
-  insertNoAuth(u: Usuario){
-    return this.http.post(this.url2,u);
-  }
+  
 }
