@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Subject, tap } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { Usuario } from '../models/Usuario';
 
 const base_url = environment.base;
@@ -16,18 +16,20 @@ export class UsuarioService {
   private url2= `${base_url}/usuarios/signUp`;
 
   constructor(private http: HttpClient, ) { }
-  list(){
+  list(): Observable<Usuario[]>{
     return this.http.get<Usuario[]>(this.url);
   }
-  insert(u: Usuario){
-    return this.http.post(this.url,u);
+
+  insert(u: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(this.url, u);
   }
+
 
   getList(){
     return this.listaCambio.asObservable();
   }
 
-  setList(listaNueva : Usuario[]){
+  setList(listaNueva : Usuario[]): void{
     this.listaCambio.next(listaNueva);
   }
   listId(id: number){

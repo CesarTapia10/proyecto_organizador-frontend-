@@ -16,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimationsAsync(),
+    provideAnimationsAsync(), provideAnimationsAsync(), provideZoneChangeDetection(),
     importProvidersFrom(
       JwtModule.forRoot({
         config: {

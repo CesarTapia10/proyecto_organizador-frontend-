@@ -40,6 +40,21 @@ export class CreareditarusuariosComponent implements OnInit{
   edicion: any;
   id: number = 0;
   showPassword = false;
+
+  
+  listapaises: { value: string; viewValue: string }[] = [
+    { value: 'Peru', viewValue: 'Peru' },
+    { value: 'Argentina', viewValue: 'Argentina' },
+    { value: 'Chile', viewValue: 'Chile' },
+    { value: 'Colombia', viewValue: 'Colombia' },
+    { value: 'Venezuela', viewValue: 'Venezuela' },
+    { value: 'España', viewValue: 'España' },
+    { value: 'Portugal', viewValue: 'Portugal' },
+    { value: 'Brazil', viewValue: 'Brazil' },
+    { value: 'Paraguay', viewValue: 'Paraguay' },
+    { value: 'Ecuador', viewValue: 'Ecuador' },
+  
+  ];
   
 
   constructor(
@@ -61,18 +76,20 @@ export class CreareditarusuariosComponent implements OnInit{
       //Sin Validacion
       hid: [],
       husername: ['', Validators.required],
-      hmail: ['', Validators.required],
+      hmail: ['', [Validators.required, Validators.email]],
       hpais:['', Validators.required],
-      hpassword: ['', Validators.required],
+      hpassword: ['',  [Validators.required, Validators.minLength(6)]],
       hfecha_modificacion: ['', Validators.required],
     });
   }
   insertar(): void {
     if (this.form.valid) {
+      
       this.usuario.id = this.form.value.hid;
       this.usuario.username = this.form.value.husername;
       this.usuario.email = this.form.value.hmail;
       this.usuario.password = this.form.value.hpassword;
+      this.usuario.pais=this.form.value.hpais;
       this.usuario.enabled = true;
       this.usuario.fecha_registro = this.usuario.fecha_registro;
       this.usuario.fecha_modificacion = this.form.value.hfecha_modificacion;

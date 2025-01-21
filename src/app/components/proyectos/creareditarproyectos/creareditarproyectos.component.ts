@@ -70,7 +70,7 @@ export class CreareditarproyectosComponent {
       this.proyectos.id= this.form.value.hid;
       this.proyectos.nombre=this.form.value.hnombre;
       this.proyectos.decripcion=this.form.value.hdecripcion;
-      this.proyectos.fecha_creacion=this.form.value.hfecha_creacion;
+      this.proyectos.fecha_creacion=this.proyectos.fecha_creacion;
       this.proyectos.fecha_modifiacion=this.form.value.hfecha_modifiacion;
 
     

@@ -31,6 +31,7 @@ export class LisarusuariosComponent implements OnInit{
     'c4',
     'c5',
     'c6',
+   
     'accion01',
     'accion02',
   ];

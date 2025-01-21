@@ -12,9 +12,9 @@
         <form [formGroup]="form" (submit)="insertar()" style="display: flex; flex-direction: column; gap:15px">
 
 
-            <mat-form-field class="example-full-witdth" appearance="fill" *ngIf="edicion">
+            <mat-form-field class="example-full-width" *ngIf="edicion">
                 <mat-label> Codigo </mat-label>
-                <input matImput formControlName="hid" readonly/>
+                <input matInput formControlName="hid" readonly/>
             </mat-form-field>
 
             <mat-form-field class="example-full-witdth" appearance="fill">
@@ -43,12 +43,16 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Pais</mat-label>
-                <input matInput placeholder="Peru" formControlName="hpais" />
-                <mat-error *ngIf="form.controls['hpais'].hasError('required')">
-                    El pais es obligatorio
-                  </mat-error>
-            </mat-form-field>
+                <mat-label>País</mat-label>
+                <mat-select formControlName="hpais" aria-label="Seleccionar país">
+                  <mat-option *ngFor="let p of listapaises" [value]="p.value">
+                    {{ p.viewValue }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('hpais')?.hasError('required')">
+                  El País es obligatorio
+                </mat-error>
+              </mat-form-field>
 
 
             <mat-form-field appearance="fill">
@@ -76,3 +80,4 @@
         </form>
     </div>
 </div>
+
