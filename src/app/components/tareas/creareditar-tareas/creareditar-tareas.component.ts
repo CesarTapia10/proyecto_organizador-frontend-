@@ -69,7 +69,7 @@ export class CreareditarTareasComponent {
       hdescripcion: ['', Validators.required],
       hestado: ['', Validators.required],
       hfecha_limite: ['', Validators.required],
-      hfecha_creacion: ['', Validators.required],
+      
       hfecha_actualizacion: ['', Validators.required],
       hidusuario: ['', Validators.required],
       
@@ -85,7 +85,7 @@ export class CreareditarTareasComponent {
       this.tarea.descripcion=this.form.value.hdescripcion;
       this.tarea.estado=this.form.value.hdescripcion;
       this.tarea.fecha_limite=this.form.value.hfecha_limite;
-      this.tarea.fecha_creacion=this.tarea.fecha_creacion;
+      this.tarea.fecha_creacion=new Date(Date.now());
       this.tarea.fecha_actualizacion=this.form.value.hfecha_actualizacion;
       this.tarea.user.id=this.form.value.hidusuario;
 

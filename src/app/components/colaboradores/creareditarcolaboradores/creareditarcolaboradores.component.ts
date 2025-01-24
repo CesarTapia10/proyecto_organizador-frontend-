@@ -37,6 +37,21 @@ export class CreareditarcolaboradoresComponent {
   id: number = 0;
   edicion: boolean = false;
 
+  listarepresentacion: { value: string; viewValue: string }[] = [
+    { value: 'Lider', viewValue: 'Lider' },
+    { value: 'desarrollador', viewValue: 'desarrollador' },
+    { value: 'desarrollador 2', viewValue: 'desarrollador 2' },
+    { value: 'investigador', viewValue: 'investigador' },
+    { value: 'coordinador', viewValue: 'coordinador' },
+    { value: 'especialista', viewValue: 'especialista' },
+    { value: 'evaluador', viewValue: 'evaluador' },
+    { value: 'El creativo', viewValue: 'El creativo' },
+    { value: 'rematador', viewValue: 'rematador' },
+    { value: 'implementador', viewValue: 'implementador' },
+    { value: 'impulsor', viewValue: 'impulsor' },
+    { value: 'productivo', viewValue: 'productivo' },
+  ];
+
   constructor(
     private Cs: ColaboradoresService,
     private formBuilder: FormBuilder,

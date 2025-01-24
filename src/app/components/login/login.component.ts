@@ -48,5 +48,7 @@ export class LoginComponent implements OnInit{
     }
     );
   }
-
+  redirectToLanding() {
+    this.router.navigate(['']);
+  }
 }

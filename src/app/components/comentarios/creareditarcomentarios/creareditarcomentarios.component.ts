@@ -57,7 +57,6 @@ export class CreareditarcomentariosComponent {
     this.form = this.formBuilder.group({
       hid:[''],
       hcontenido: ['', Validators.required],
-      hfecha_creacion: ['', Validators.required],
       htareas: ['', Validators.required],
       huser: ['', Validators.required],
       
@@ -74,7 +73,7 @@ export class CreareditarcomentariosComponent {
     if (this.form.valid) {
       this.comentarios.id= this.form.value.hid;
       this.comentarios.contenido=this.form.value.hcontenido;
-      this.comentarios.fecha_creacion=this.comentarios.fecha_creacion;
+      this.comentarios.fecha_creacion=new Date(Date.now());
       this.comentarios.tareas.id=this.form.value.htareas;
       this.comentarios.user.id=this.form.value.huser;
      
@@ -106,7 +105,6 @@ export class CreareditarcomentariosComponent {
 
           hid: new FormControl(data.id),
           hcontenido: new FormControl(data.contenido),
-          hfecha_creacion:  new FormControl(data.fecha_creacion),
           htareas: new FormControl(data.tareas.titulo),
           huser:  new FormControl(data.user.username),
         });

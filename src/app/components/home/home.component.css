@@ -19,11 +19,12 @@ body {
   .carousel-container {
     width: 100%;
     overflow: hidden;
-    margin: 20px 0;
+    margin: 20px ;
   }
   
   .carousel {
     display: flex;
+    justify-content: space-between;
     animation: slide 15s infinite linear;
   }
   
@@ -48,7 +49,7 @@ body {
     width: 150px;
     margin: 10px auto;
     padding: 10px;
-    background-color: #d32f2f; /* Rojo */
+    background-color: #9e38fd; /* Rojo */
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -57,7 +58,7 @@ body {
   }
   
   .action-button:hover {
-    background-color: darkred;
+    background-color: rgb(12, 48, 255);
   }
   
   .empty-button {
@@ -65,16 +66,16 @@ body {
     width: 120px;
     padding: 10px;
     margin: 10px auto; /* Centra el botón y agrega margen superior/inferior */
-    color: #d32f2f;
+    color: #912fd3;
     background-color: transparent;
-    border: 2px solid #d32f2f;
+    border: 2px solid #912fd3;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .empty-button:hover {
-    background-color: #d32f2f;
+    background-color: #3f50e6;
     color: #ffffff;
   }
   

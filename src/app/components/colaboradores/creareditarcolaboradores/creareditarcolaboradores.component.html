@@ -12,12 +12,17 @@
       </mat-form-field>
 
       <!-- Campo Representación -->
-      <mat-form-field class="form-field">
+
+      <mat-form-field>
         <mat-label>Representación</mat-label>
-        <input matInput formControlName="hrepresentacion" />
-        <mat-error *ngIf="form.controls['hrepresentacion'].hasError('required')">
-          La representación es obligatoria
-        </mat-error>
+        <mat-select formControlName="hrepresentacion">
+          <mat-option *ngFor="let l of listarepresentacion" [value]="l.value">
+            {{ l.viewValue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('hrepresentacion')?.hasError('required')"
+          > La representación es obligatoria</mat-error
+        >
       </mat-form-field>
 
       <!-- Campo Proyectos -->

@@ -1,0 +1,26 @@
+.logo-img{
+    margin: 35px 20px; 
+    width:20%; 
+    height:20%;
+    border-radius: 40%;
+    box-shadow: 0 6px 110px rgba(0, 81, 255, 0.753);
+    align-items: center;
+    background-position: center;
+  }
+
+  h2{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight:800 ;
+    background: linear-gradient(to right, rgb(89, 100, 255), rgb(60, 110, 247), rgb(255, 238, 0), rgb(33, 47, 240), rgb(128, 36, 247));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .container{
+    margin-top: 4%;
+    background: linear-gradient( #bbbbbb, #573d79);
+  }
+

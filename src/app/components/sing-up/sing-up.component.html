@@ -1,67 +1,83 @@
-<div class="container">
-  <div class="header">
-    <h1 class="title">¡¡Bienvenido a AVI!!</h1>
-  </div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sing-up</title>
+
+
+</head>
+<body>
   
-  <div>
-    <form [formGroup]="form" (submit)="insertar()" class="form-container">
-      <!-- Nombre de Usuario -->
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Nombre Usuario</mat-label>
-        <input 
-          matInput 
-          formControlName="hnombre" 
-        />
-        <mat-error *ngIf="form.controls['hnombre'].hasError('required')">
-          El nombre de usuario es obligatorio
-        </mat-error>
-      </mat-form-field>
 
-      <!-- Contraseña -->
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Ingrese su contraseña</mat-label>
-        <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="********" formControlName="hpass" />
-        <button type="button" mat-icon-button matSuffix (click)="showPassword = !showPassword">
-            <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-        </button>
-    </mat-form-field>
-
-      <!-- Email -->
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="pat@example.com" formControlName="hmail" />
-        <mat-error *ngIf="form.controls['hmail'].hasError('required')">
-            El email es obligatorio
+  <div class="container">
+    <div class="header">
+      <img src="assets\logo-eslogan.png" alt="" class="logo-img">
+      <h1 class="title">¡¡Bienvenido a Ego-task!!</h1>
+    </div>
+    
+    <div>
+      <form [formGroup]="form" (submit)="insertar()" class="form-container">
+        <!-- Nombre de Usuario -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nombre Usuario</mat-label>
+          <input 
+            matInput 
+            formControlName="hnombre" 
+          />
+          <mat-error *ngIf="form.controls['hnombre'].hasError('required')">
+            El nombre de usuario es obligatorio
           </mat-error>
-    </mat-form-field>
-
-      <!-- Selección de País -->
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>País</mat-label>
-        <mat-select formControlName="hpais" >
-          <mat-option *ngFor="let p of listapaises" [value]="p.value">
-            {{ p.viewValue }}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="form.get('hpais')?.hasError('required')">
-          El País es obligatorio
-        </mat-error>
+        </mat-form-field>
+  
+        <!-- Contraseña -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Ingrese su contraseña</mat-label>
+          <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="********" formControlName="hpass" />
+          <button type="button" mat-icon-button matSuffix (click)="showPassword = !showPassword">
+              <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
       </mat-form-field>
-
-
-
-      <!-- Botón de Registro -->
-      <div class="button-container">
-        <button 
-          mat-flat-button 
-          color="primary" 
-          class="custom-button"
-          type="submit" 
-          aria-label="Registrarme"
-        >
-          Registrarme
-        </button>
-      </div>
-    </form>
+  
+        <!-- Email -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="hmail" />
+          <mat-error *ngIf="form.controls['hmail'].hasError('required')">
+              El email es obligatorio
+            </mat-error>
+      </mat-form-field>
+  
+        <!-- Selección de País -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>País</mat-label>
+          <mat-select formControlName="hpais" >
+            <mat-option *ngFor="let p of listapaises" [value]="p.value">
+              {{ p.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('hpais')?.hasError('required')">
+            El País es obligatorio
+          </mat-error>
+        </mat-form-field>
+  
+  
+  
+        <!-- Botón de Registro -->
+        <div class="button-container">
+          <button 
+            mat-flat-button 
+            color="primary" 
+            class="custom-button"
+            type="submit" 
+            aria-label="Registrarme"
+          >
+            Registrarme
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+  </body>
+</html>

@@ -54,7 +54,7 @@ export class CreareditarproyectosComponent {
       hid:[''],
       hnombre: ['', Validators.required],
       hdecripcion: ['', Validators.required],
-      hfecha_creacion: ['', Validators.required],
+   
       hfecha_modifiacion: ['', Validators.required],
    
    
@@ -70,7 +70,7 @@ export class CreareditarproyectosComponent {
       this.proyectos.id= this.form.value.hid;
       this.proyectos.nombre=this.form.value.hnombre;
       this.proyectos.decripcion=this.form.value.hdecripcion;
-      this.proyectos.fecha_creacion=this.proyectos.fecha_creacion;
+      this.proyectos.fecha_creacion=new Date(Date.now());
       this.proyectos.fecha_modifiacion=this.form.value.hfecha_modifiacion;
 
     
@@ -104,7 +104,7 @@ export class CreareditarproyectosComponent {
           hid: new FormControl(data.id),
           hnombre: new FormControl(data.nombre),
           hdecripcion:  new FormControl(data.decripcion),
-          hfecha_creacion: new FormControl(data.fecha_creacion),
+         
           hfecha_modifiacion:  new FormControl(data.fecha_modifiacion),
     
    

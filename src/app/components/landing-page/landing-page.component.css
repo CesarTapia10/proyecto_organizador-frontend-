@@ -215,15 +215,21 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 10dvh;
+  min-height: 9dvh;
 
 }
 
 
 
 .pe {
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 1.78rem;
+  font-weight: 100px;
+  background: url(https://t4.ftcdn.net/jpg/09/25/68/73/360_F_925687319_bbZNcAlozFuA9dsfbrp8JCooMEIYHWmo.jpg);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-position: center;
+  background-size: cover;
+  -webkit-text-stroke: 0.1px white;
 }
 
 .menu{
@@ -363,7 +369,7 @@ header {
 }
 
 .feature {
-  margin-top: 70px;
+
   background: rgb(255, 255, 255);
   
   border-radius: 8px;
@@ -373,6 +379,7 @@ header {
   box-shadow: 0 6px 110px rgba(21, 255, 0, 0.555);
   text-align: center;
   transition: transform 0.3s ;
+  margin: 100px 30px; 
   
 }
 
@@ -405,6 +412,7 @@ footer a:hover {
 }
 
 .logo-img{
-  width:30px; 
-  height:30px;
+  margin: 15px 20px; 
+  width:50px; 
+  height:50px;
 }
