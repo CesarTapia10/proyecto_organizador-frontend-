@@ -35,7 +35,7 @@ export class CreareditarcomentariosComponent {
   listartarea:Tareas[]=[];
 
   id: number = 0;
-  edicion: boolean = false;
+  edicion: any;
 
   constructor(
     private cS: ComentariosService,
@@ -55,7 +55,7 @@ export class CreareditarcomentariosComponent {
     });
 
     this.form = this.formBuilder.group({
-      hid:[''],
+      hid:[],
       hcontenido: ['', Validators.required],
       htareas: ['', Validators.required],
       huser: ['', Validators.required],

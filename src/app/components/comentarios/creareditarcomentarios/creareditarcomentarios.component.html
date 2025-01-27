@@ -44,7 +44,11 @@
 
       <!-- Botón -->
       <div class="button-container">
-        <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid">
+        <button
+         mat-flat-button 
+         color="primary"
+          type="submit"
+           [disabled]="!form.valid">
           {{ edicion ? 'Actualizar' : 'Registrar' }}
         </button>
       </div>

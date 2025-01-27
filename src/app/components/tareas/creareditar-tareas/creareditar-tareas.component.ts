@@ -39,7 +39,7 @@ export class CreareditarTareasComponent {
   listausuarios: Usuario[]= [];
 
   id: number = 0;
-  edicion: boolean = false;
+  edicion: any;
   
 
   estado: { value: string; viewValue: string }[] = [
@@ -64,12 +64,12 @@ export class CreareditarTareasComponent {
     });
 
     this.form = this.formBuilder.group({
-      hid:[''],
+      hid:[],
       htitulo: ['', Validators.required],
       hdescripcion: ['', Validators.required],
       hestado: ['', Validators.required],
       hfecha_limite: ['', Validators.required],
-      
+      hfecha_creacion:[new Date(Date.now())],
       hfecha_actualizacion: ['', Validators.required],
       hidusuario: ['', Validators.required],
       
@@ -83,9 +83,9 @@ export class CreareditarTareasComponent {
       this.tarea.id= this.form.value.hid;
       this.tarea.titulo=this.form.value.htitulo;
       this.tarea.descripcion=this.form.value.hdescripcion;
-      this.tarea.estado=this.form.value.hdescripcion;
+      this.tarea.estado=this.form.value.hestado;
       this.tarea.fecha_limite=this.form.value.hfecha_limite;
-      this.tarea.fecha_creacion=new Date(Date.now());
+      this.tarea.fecha_creacion=this.form.value.hfecha_creacion;
       this.tarea.fecha_actualizacion=this.form.value.hfecha_actualizacion;
       this.tarea.user.id=this.form.value.hidusuario;
 

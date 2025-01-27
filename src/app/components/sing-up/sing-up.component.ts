@@ -69,21 +69,27 @@ export class SingUpComponent implements OnInit{
       hmail: ['', [Validators.required, Validators.email]],
       hpais: ['', Validators.required],
       henabled: [true],
+      hfecha_registro: [new Date(Date.now())],
+      hfecha_modificacion: [new Date(Date.now())],
    
     });
+  }
+
+  redirectToLanding() {
+    this.router.navigate(['']);
   }
 
   insertar(): void {
     if (this.form.valid) {
 
-     this.usuario.id= this.usuario.id;
+      this.usuario.id= this.usuario.id;
       this.usuario.username = this.form.value.hnombre;
       this.usuario.email = this.form.value.hmail;
       this.usuario.password = this.form.value.hpass;
       this.usuario.pais=this.form.value.hpais;
-      this.usuario.enabled = true;
-      this.usuario.fecha_registro = this.usuario.fecha_registro; // Fecha actual
-      this.usuario.fecha_modificacion = this.usuario.fecha_modificacion; // Fecha actual
+      this.usuario.enabled = this.form.value.henabled;;
+      this.usuario.fecha_registro = this.form.value.hfecha_registro; // Fecha actual
+      this.usuario.fecha_modificacion = this.form.value.hfecha_modificacion; // Fecha actual
 
       // Insertar el usuario y esperar la respuesta antes de continuar
       this.uS.insert(this.usuario).subscribe((newUser: Usuario) => {

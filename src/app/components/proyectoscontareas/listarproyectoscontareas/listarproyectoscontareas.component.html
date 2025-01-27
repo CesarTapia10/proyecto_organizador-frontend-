@@ -1,5 +1,5 @@
 <div class="container">
-    <div style="text-align: center;margin: 10%;"><h1>Lista de Proyectos con tareas</h1></div>
+    <div style="text-align: center;margin: 10%;"><span>Lista de Proyectos con tareas</span></div>
     <div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="c1">
@@ -34,7 +34,7 @@
           </td>
         </ng-container>
         
-        <ng-container matColumnDef="editar">
+        <ng-container matColumnDef="ediciones">
           <th mat-header-cell *matHeaderCellDef>Editar</th>
           <td mat-cell *matCellDef="let element" [routerLink]="['ediciones',element.id]">
             <mat-icon style="color:#0aeb37">edit</mat-icon>

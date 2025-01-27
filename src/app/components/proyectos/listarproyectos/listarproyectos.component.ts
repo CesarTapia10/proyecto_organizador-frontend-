@@ -28,11 +28,11 @@ export class ListarproyectosComponent implements OnInit {
 
   ngOnInit(): void {
     this.Ps.list().subscribe(data=>{
-      this.dataSource=new MatTableDataSource(data)
+      this.dataSource=new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     })
     this.Ps.getList().subscribe(data=>{
-      this.dataSource=new MatTableDataSource(data)
+      this.dataSource=new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     })
   }

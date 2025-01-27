@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarproyectoscontareasComponent } from './listarproyectoscontareas/listarproyectoscontareas.component';
 
@@ -8,6 +8,7 @@ import { ListarproyectoscontareasComponent } from './listarproyectoscontareas/li
   templateUrl: './proyectoscontareas.component.html',
   styleUrl: './proyectoscontareas.component.css'
 })
-export class ProyectoscontareasComponent {
+export class ProyectoscontareasComponent  {
   constructor(public route:ActivatedRoute) {}
+
 }

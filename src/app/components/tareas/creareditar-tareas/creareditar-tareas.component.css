@@ -11,15 +11,15 @@ mat-form-field{
 
   
   
-  .edit-mode h1 {
-    color: #e81a1ad7; /* Color de texto para el título en modo edición */
+   .edit-mode h1 {
+    color: #1a7ae8d7; /* Color de texto para el título en modo edición */
   }
   
  
 
   
   .register-mode h1 {
-    color: #f53d3d; /* Color de texto para el título en modo registro */
+    color: #b995ce; /* Color de texto para el título en modo registro */
   }
 
  

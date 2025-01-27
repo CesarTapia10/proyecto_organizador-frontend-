@@ -6,7 +6,7 @@
   <div>
     <form [formGroup]="form" (submit)="insertar()">
       <!-- Campo Código -->
-      <mat-form-field class="form-field" *ngIf="edicion">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
         <mat-label>Código</mat-label>
         <input matInput formControlName="hid" readonly />
       </mat-form-field>

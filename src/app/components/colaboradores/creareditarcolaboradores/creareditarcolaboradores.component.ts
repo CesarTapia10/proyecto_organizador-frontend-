@@ -35,7 +35,7 @@ export class CreareditarcolaboradoresComponent {
   listausuarios: Usuario[]= [];
 
   id: number = 0;
-  edicion: boolean = false;
+  edicion: any;
 
   listarepresentacion: { value: string; viewValue: string }[] = [
     { value: 'Lider', viewValue: 'Lider' },
@@ -70,7 +70,7 @@ export class CreareditarcolaboradoresComponent {
     });
 
     this.form = this.formBuilder.group({
-      hid:[''],
+      hid:[],
       hrepresentacion: ['', Validators.required],
       hproyectos: ['', Validators.required],
       hidusuario: ['', Validators.required],
@@ -90,6 +90,7 @@ export class CreareditarcolaboradoresComponent {
       this.colaboladores.representacion=this.form.value.hrepresentacion;
       this.colaboladores.proyectos.id=this.form.value.hproyectos;
       this.colaboladores.user.id=this.form.value.hidusuario;
+      
 
 
 
@@ -108,8 +109,10 @@ export class CreareditarcolaboradoresComponent {
         });
       }
      
-      this.router.navigate(['colaboradores'])
+    
     }
+    
+    this.router.navigate(['colaboradores'])
 
   }
   init() {

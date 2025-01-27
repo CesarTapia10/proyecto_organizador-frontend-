@@ -6,7 +6,6 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
   selector: 'app-landing-page',
   imports: [
     RouterModule,
-    RouterLink,
     RouterModule,
     MatIconModule,
    

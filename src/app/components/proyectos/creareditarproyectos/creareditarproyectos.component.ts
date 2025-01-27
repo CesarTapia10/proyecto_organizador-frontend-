@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -19,7 +19,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    MatFormFieldModule,
     ReactiveFormsModule,
     CommonModule,
   ],
@@ -32,7 +31,7 @@ export class CreareditarproyectosComponent {
 
 
   id: number = 0;
-  edicion: boolean = false;
+  edicion: boolean = false
 
   constructor(
     private pS: ProyectosService,
@@ -51,14 +50,12 @@ export class CreareditarproyectosComponent {
     });
 
     this.form = this.formBuilder.group({
-      hid:[''],
+      hid:[],
       hnombre: ['', Validators.required],
       hdecripcion: ['', Validators.required],
-   
+      hfecha_creacion:[new Date(Date.now())],
       hfecha_modifiacion: ['', Validators.required],
-   
-   
-      
+
     });
 
  
@@ -70,7 +67,7 @@ export class CreareditarproyectosComponent {
       this.proyectos.id= this.form.value.hid;
       this.proyectos.nombre=this.form.value.hnombre;
       this.proyectos.decripcion=this.form.value.hdecripcion;
-      this.proyectos.fecha_creacion=new Date(Date.now());
+      this.proyectos.fecha_creacion=this.form.value.hfecha_creacion;
       this.proyectos.fecha_modifiacion=this.form.value.hfecha_modifiacion;
 
     
@@ -104,7 +101,7 @@ export class CreareditarproyectosComponent {
           hid: new FormControl(data.id),
           hnombre: new FormControl(data.nombre),
           hdecripcion:  new FormControl(data.decripcion),
-         
+          hfecha_creacion:new FormControl(data.fecha_creacion),
           hfecha_modifiacion:  new FormControl(data.fecha_modifiacion),
     
    

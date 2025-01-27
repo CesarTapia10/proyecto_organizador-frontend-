@@ -11,17 +11,8 @@
       </mat-form-field>
       <br />
 
-      <mat-form-field>
-        <mat-label>Fecha creación</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="hfecha_creacion" />
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="form.controls['hfecha_creacion'].hasError('required')">
-          La fecha de creación es obligatoria
-        </mat-error>
-      </mat-form-field>
-      <br />
+  
+    
 
       <mat-form-field>
         <mat-label>Fecha de modificación</mat-label>

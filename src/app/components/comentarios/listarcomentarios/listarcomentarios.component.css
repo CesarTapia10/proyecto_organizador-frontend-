@@ -1,0 +1,27 @@
+h1{
+    color: rgb(188, 72, 255);
+}
+
+span{
+    display: block;
+    font-family: monospace;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 21ch;
+    color: rgb(188, 72, 255);
+    animation: typing 2s steps(12),
+    blink .5s infinite step-end alternate;
+    text-align: center;
+    margin: 10% 29%;
+    overflow: hidden;
+    font-size: 150%;
+
+}
+
+@keyframes typing{
+    from{width: 0;}
+}
+
+@keyframes blink{
+    50%{border-color:transparent ;}
+}

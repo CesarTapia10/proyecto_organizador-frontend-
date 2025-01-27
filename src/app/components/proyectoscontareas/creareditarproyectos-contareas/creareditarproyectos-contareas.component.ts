@@ -38,14 +38,13 @@ export class CreareditarproyectosContareasComponent {
   listaproyectos: Proyectos[]=[];
 
   id: number = 0;
-  edicion: boolean = false;
+  edicion: any;
 
   constructor(
     private pT: ProyectosconTareasService,
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private uS: UsuarioService,
     private pr: ProyectosService,
     private tr:TareasService
   ) {}
@@ -60,16 +59,12 @@ export class CreareditarproyectosContareasComponent {
 
     this.form = this.formBuilder.group({
       hid:[''],
-      hfecha_creacion: ['', Validators.required],
       hfecha_modifiacion: ['', Validators.required],
       hproyectos: ['', Validators.required],
       htareas: ['', Validators.required],
+      hfecha_creacion:[new Date(Date.now())]
    
       
-    });
-
-    this.uS.list().subscribe((data) =>{
-      this.listausuarios=data;
     });
 
     this.pr.list().subscribe((data) =>{
@@ -88,7 +83,7 @@ export class CreareditarproyectosContareasComponent {
       this.proyectoscontareas.fecha_modifiacion=this.form.value.hfecha_modifiacion;
       this.proyectoscontareas.proyectos.id=this.form.value.hproyectos;
       this.proyectoscontareas.tareas.id=this.form.value.htareas;
-    
+       
 
 
 
@@ -98,6 +93,7 @@ export class CreareditarproyectosContareasComponent {
             this.pT.setList(data);
           });
         });
+      
 
       } else {
         this.pT.insert(this.proyectoscontareas).subscribe(data=>{
@@ -107,9 +103,9 @@ export class CreareditarproyectosContareasComponent {
         });
       }
      
-      this.router.navigate(['proyectoscontareas'])
+      
     }
- 
+    this.router.navigate(['proyectoscontareas'])
   }
   init() {
     if (this.edicion) {

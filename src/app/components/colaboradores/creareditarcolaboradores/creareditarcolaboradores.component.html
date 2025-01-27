@@ -1,18 +1,21 @@
-<div class="container" [ngClass]="{ 'edit-mode': edicion, 'register-mode': !edicion }">
+<div class="container" [ngClass]="{ 'edit-mode': edicion, 
+'register-mode': !edicion }">
   <div>
     <h1>{{ edicion ? 'Actualizar colaboradores' : 'Registrar colaboradores' }}</h1>
   </div>
 
   <div>
-    <form [formGroup]="form" (submit)="insertar()" class="colaboradores-form">
+    <form [formGroup]="form" (submit)="insertar()" style="display: flex; flex-direction: column; gap:15px">
       <!-- Campo Código -->
-      <mat-form-field class="form-field" *ngIf="edicion">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
         <mat-label>Código</mat-label>
         <input matInput formControlName="hid" readonly />
       </mat-form-field>
 
+
       <!-- Campo Representación -->
 
+      
       <mat-form-field>
         <mat-label>Representación</mat-label>
         <mat-select formControlName="hrepresentacion">

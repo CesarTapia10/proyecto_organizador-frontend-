@@ -20,7 +20,7 @@ import { ProyectosconTareasService } from '../../../services/proyectoscon-tareas
 export class ListarproyectoscontareasComponent implements OnInit{
   dataSource: MatTableDataSource<ProyectosconTareas> = new MatTableDataSource();
 
-  displayedColumns:string[]=['c1','c2','c3','c4', 'c5','eliminar','editar']
+  displayedColumns:string[]=['c1','c2','c3','c4', 'c5','eliminar','ediciones']
 
   @ViewChild (MatPaginator) paginator!: MatPaginator;
 
