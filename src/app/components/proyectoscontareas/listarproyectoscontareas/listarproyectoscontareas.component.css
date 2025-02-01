@@ -25,3 +25,30 @@ span{
 @keyframes blink{
     50%{border-color:transparent ;}
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Asegura que cubra toda la altura del viewport */
+    background-image: linear-gradient(
+        rgba(151, 104, 160, 0.356),
+        rgba(62, 31, 134, 0.5)),
+        url(https://static.vecteezy.com/system/resources/previews/008/922/022/non_2x/gradient-black-background-with-angle-shapes-texture-illustration-vector.jpg);/* Color degradado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  table
+  {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.356),
+        rgba(255, 255, 255, 0.5)),
+        url(https://img.freepik.com/fotos-premium/fondo-pared-pizarra-pizarra-oscura-negra_28629-1268.jpg);
+  }
+  .mat-paginator{
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.356),
+        rgba(255, 255, 255, 0.5)),
+        url(https://img.freepik.com/fotos-premium/fondo-pared-pizarra-pizarra-oscura-negra_28629-1268.jpg);/* Color degradado */
+  }

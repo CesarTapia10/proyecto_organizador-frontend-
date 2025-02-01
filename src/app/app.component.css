@@ -8,8 +8,8 @@ body, html {
 
 .sidenav {
     width: 250px;
-    background-color: #f9f5f3;
-    border-right: 2px solid #8670eb;
+    background-color: #000000d5;
+    border-right: 2.5px solid #8670eb;
     height: 100%; 
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@ body, html {
 }
 
 .sidenav-header {
-    background-color: #946cf2;
+    background-color: #946cf2b0;
     color: white;
     padding: 1rem;
     text-align: center;
@@ -30,7 +30,7 @@ body, html {
 
 .menu-section h4 {
     font-size: 1.2rem;
-    color: #306cb0; /* Mantén este color */
+    color: #8ac1ff; /* Mantén este color */
     margin-bottom: 0.5rem;
     border-bottom: 2px solid #6547d3;
 }
@@ -42,13 +42,13 @@ button[mat-button] {
     padding: 0.5rem;
     margin: 0.2rem 0;
     border-radius: 8px;
-    color: #563ce7; /* Cambiado a un rojo claro */
+    color: #c4bbff; 
     font-size: 0.9rem;
     transition: background-color 0.3s, transform 0.2s;
 }
 
 button[mat-button]:hover {
-    background-color: #b3b4ff;
+    background-color: #8670eb;
     transform: scale(1.03);
 }
 
@@ -58,7 +58,7 @@ button[mat-button] mat-icon {
 }
 
 .custom-toolbar {
-    background-color: #946cf2;
+    background-color: #775bb8;
     color: white;
     display: flex;
     justify-content: flex-end; 

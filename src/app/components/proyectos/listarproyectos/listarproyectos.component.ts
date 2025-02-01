@@ -5,6 +5,8 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { Proyectos } from '../../../models/Proyectos';
 import { ProyectosService } from '../../../services/proyectos.service';
+import {MatCardModule} from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listarproyectos',
@@ -12,7 +14,8 @@ import { ProyectosService } from '../../../services/proyectos.service';
     MatTableModule,
      MatIconModule, 
      RouterLink,
-     MatPaginator
+     MatCardModule,
+     CommonModule
   ],
   templateUrl: './listarproyectos.component.html',
   styleUrl: './listarproyectos.component.css'
@@ -22,23 +25,22 @@ export class ListarproyectosComponent implements OnInit {
 
   displayedColumns:string[]=['c1','c2','c3','c4', 'c5','eliminar','editar']
 
-  @ViewChild (MatPaginator) paginator!: MatPaginator;
+
 
   constructor(private Ps: ProyectosService) {}
 
   ngOnInit(): void {
     this.Ps.list().subscribe(data=>{
       this.dataSource=new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
     })
     this.Ps.getList().subscribe(data=>{
       this.dataSource=new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
+
+  
     })
   }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
+  
+
 
   eliminar(id: number) {
     this.Ps.delete(id).subscribe((data) => {

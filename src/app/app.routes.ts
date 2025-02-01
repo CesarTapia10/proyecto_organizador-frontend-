@@ -18,6 +18,7 @@ import { ProyectoscontareasComponent } from './components/proyectoscontareas/pro
 import { CreareditarproyectosContareasComponent } from './components/proyectoscontareas/creareditarproyectos-contareas/creareditarproyectos-contareas.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { CreareditarrolesComponent } from './components/roles/creareditarroles/creareditarroles.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 
 
@@ -27,6 +28,10 @@ export const routes: Routes = [
      {
         path: '',
         component: LandingPageComponent,
+      },
+      {
+        path: 'contacto',
+        component: ContactoComponent,
       },
       {
         path: 'signUp',

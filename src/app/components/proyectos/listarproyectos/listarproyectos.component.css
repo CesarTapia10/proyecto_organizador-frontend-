@@ -12,7 +12,7 @@ span{
     animation: typing 2s steps(12),
     blink .5s infinite step-end alternate;
     text-align: center;
-    margin: 10% 29%;
+    margin: 10% 38%;
     overflow: hidden;
     font-size: 150%;
 
@@ -25,3 +25,29 @@ span{
 @keyframes blink{
     50%{border-color:transparent ;}
 }
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaciado horizontal y vertical entre cards */
+    justify-content: center; /* Centra las cards */
+  }
+  
+  .example-card {
+    margin-bottom: 20px; /* Margen inferior para dar espacio a la tarjeta */
+    width: 250px; /* Ajusta el ancho de las cards si lo deseas */
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Asegura que cubra toda la altura del viewport */
+    background-image: linear-gradient(
+        rgba(151, 104, 160, 0.356),
+        rgba(62, 31, 134, 0.5)),
+        url(https://static.vecteezy.com/system/resources/previews/008/922/022/non_2x/gradient-black-background-with-angle-shapes-texture-illustration-vector.jpg);/* Color degradado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

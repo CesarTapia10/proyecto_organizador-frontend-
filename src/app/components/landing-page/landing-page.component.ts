@@ -21,4 +21,7 @@ export class LandingPageComponent {
   redirectToRegister() {
     this.router.navigate(['/signUp']); 
   }
+  redirectToContacto() {
+    this.router.navigate(['/contacto']); 
+  }
 }

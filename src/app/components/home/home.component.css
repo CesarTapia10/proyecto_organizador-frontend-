@@ -99,3 +99,16 @@ body {
     text-align: center;
   }
   
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Asegura que cubra toda la altura del viewport */
+    background-image: linear-gradient(
+        rgba(221, 154, 235, 0.356),
+        rgba(48, 43, 61, 0.5)),
+        url(https://i.pinimg.com/originals/12/b2/3a/12b23a7752e8a7a4464c1ff5e596237f.gif);/* Color degradado */
+    display: flex;
+    justify-content:end;
+    align-items: center;
+    background-position: 19%;
+  }

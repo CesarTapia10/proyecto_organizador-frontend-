@@ -32,7 +32,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './sing-up.component.html',
   styleUrl: './sing-up.component.css'
 })
-export class SingUpComponent implements OnInit{
+export class SingUpComponent {
   form: FormGroup = new FormGroup({});
   usuario: Usuario = new Usuario();
   rol: roles = new roles();
@@ -79,6 +79,20 @@ export class SingUpComponent implements OnInit{
     this.router.navigate(['']);
   }
 
+
+  createRoleForUser(userId: number): void {
+
+    const newRole = new roles();
+    newRole.rol = 'USUARIO'; 
+    newRole.user = { id: userId } as Usuario;
+
+    this.rS.insert(newRole).subscribe((data) => {
+      this.rS.list().subscribe((data) => {
+        this.rS.setList(data);
+      });
+    });
+  }
+
   insertar(): void {
     if (this.form.valid) {
 
@@ -91,6 +105,8 @@ export class SingUpComponent implements OnInit{
       this.usuario.fecha_registro = this.form.value.hfecha_registro; // Fecha actual
       this.usuario.fecha_modificacion = this.form.value.hfecha_modificacion; // Fecha actual
 
+
+      
       // Insertar el usuario y esperar la respuesta antes de continuar
       this.uS.insert(this.usuario).subscribe((newUser: Usuario) => {
         if (newUser && newUser.id) {
@@ -99,7 +115,7 @@ export class SingUpComponent implements OnInit{
           this.uS.list().subscribe((data) => {
             this.uS.setList(data);
           });
-          this.router.navigate(['/login']);
+          this.router.navigate(['login']);
         } 
         else {
           console.error('Error: Usuario no creado correctamente');
@@ -112,18 +128,5 @@ export class SingUpComponent implements OnInit{
   }
 
   
-  createRoleForUser(userId: number): void {
-
-   
-
-    const newRole = new roles();
-    newRole.rol = 'USUARIO'; 
-    newRole.user = { id: userId } as Usuario;
-
-    this.rS.insert(newRole).subscribe((data) => {
-      this.rS.list().subscribe((data) => {
-        this.rS.setList(data);
-      });
-    });
-  }
+  
 }

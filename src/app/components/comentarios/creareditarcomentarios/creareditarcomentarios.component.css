@@ -20,3 +20,19 @@ mat-form-field{
   .register-mode h1 {
     color: #b995ce; /* Color de texto para el título en modo registro */
   }
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Asegura que cubra toda la altura del viewport */
+    background-image: linear-gradient(
+        rgba(233, 233, 233, 0.356),
+        rgba(51, 44, 63, 0.5)),
+        url(https://i.gifer.com/Q6al.gif);/* Color degradado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   background-position: center;
+  
+    background-size: 60%;
+  }

@@ -13,7 +13,7 @@ export class UsuarioService {
 
   private url = `${base_url}/usuarios`;
   private  listaCambio = new Subject<Usuario[]>();
-  private url2= `${base_url}/usuarios/signUp`;
+
 
   constructor(private http: HttpClient, ) { }
   list(): Observable<Usuario[]>{
@@ -44,8 +44,11 @@ export class UsuarioService {
     return this.http.put(this.url,us);
   }
 
-  listNoAuth(email : string){
-    return this.http.get<Usuario>(`${this.url}/NoAuth${email}`);
+  listNoAuth(email : string): Observable<Usuario[]>{
+    return this.http.get<Usuario[]>(`${this.url}/NoAuth${email}`);
+  }
+  listByRole(role: string): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.url}/role/${role}`);
   }
 
   
