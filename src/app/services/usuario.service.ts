@@ -15,12 +15,12 @@ export class UsuarioService {
   private  listaCambio = new Subject<Usuario[]>();
 
 
-  constructor(private http: HttpClient, ) { }
+  constructor(private http: HttpClient ) { }
   list(): Observable<Usuario[]>{
     return this.http.get<Usuario[]>(this.url);
   }
 
-  insert(u: Usuario): Observable<Usuario> {
+  insert(u: Usuario) : Observable<Usuario>{
     return this.http.post<Usuario>(this.url, u);
   }
 
@@ -44,9 +44,10 @@ export class UsuarioService {
     return this.http.put(this.url,us);
   }
 
-  listNoAuth(email : string): Observable<Usuario[]>{
-    return this.http.get<Usuario[]>(`${this.url}/NoAuth${email}`);
+  listNoAuth(email : string) {
+    return this.http.get<Usuario>(`${this.url}/NoAuth${email}`);
   }
+  
   listByRole(role: string): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.url}/role/${role}`);
   }

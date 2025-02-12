@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { comentarios } from '../models/comentarios';
 import { HttpClient } from '@angular/common/http';
+import { CantidadDeComentariosPorUsuarioDTO } from '../models/CantidadDeComentariosPorUsuarioDTO';
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,10 @@ export class ComentariosService {
   }
   update(com: comentarios){
     return this.http.put(this.url,com);
+  }
+
+  getcantidaddecomentariosporusuario(): Observable<CantidadDeComentariosPorUsuarioDTO[]> {
+    return this.http.get<CantidadDeComentariosPorUsuarioDTO[]>(`${this.url}/CantidadDeComentarios`);
   }
   
 }

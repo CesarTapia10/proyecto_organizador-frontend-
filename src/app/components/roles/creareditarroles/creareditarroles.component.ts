@@ -66,7 +66,6 @@ export class CreareditarrolesComponent implements OnInit {
 
   insertar(): void {
     if (this.form.valid) {
-      this.rol.id = this.form.value.hid;
       this.rol.rol = this.form.value.hrol;
       this.rol.user.id = this.form.value.huserid;
       if (this.edicion) {
@@ -89,7 +88,7 @@ export class CreareditarrolesComponent implements OnInit {
     if(this.edicion){
       this.rS.listId(this.id).subscribe((data)=>{
         this.form = new FormGroup ({
-          hid: new FormControl(data.id),
+
           hrol: new FormControl(data.rol),
           huserid: new FormControl(data.user.id)
         });

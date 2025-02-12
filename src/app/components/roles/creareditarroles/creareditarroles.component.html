@@ -7,10 +7,7 @@
     <div>
         <form [formGroup]="form" (submit)="insertar()" style="display: flex; flex-direction: column; gap: 15px;">
 
-          <mat-form-field class="example-full-width"  appearance="fill" *ngIf="edicion">
-                <mat-label>Código</mat-label>
-                <input matInput  formControlName="hid" readonly/>
-            </mat-form-field>
+        
 
             <mat-form-field appearance="fill">
                 <mat-label>Tipo de Usuario</mat-label>

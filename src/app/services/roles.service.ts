@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { roles } from '../models/roles';
-import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 
@@ -17,8 +17,8 @@ constructor(private http: HttpClient) { }
   list(){
     return this.http.get<roles[]>(this.url);
   }
-  insert(r: roles){
-    return this.http.post(this.url,r);
+  insert(r: roles): Observable<any> {
+    return this.http.post(this.url, r);
   }
 
   getList(){

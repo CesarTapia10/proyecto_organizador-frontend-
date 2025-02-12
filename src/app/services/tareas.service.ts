@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Tareas } from '../models/Tareas';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { TareaTotalRelizadaDTO } from '../models/TareaTotalRelizadaDTO';
 
 const base_url = environment.base;
 @Injectable({
@@ -39,5 +40,9 @@ export class TareasService {
 
   update(ta: Tareas) {
     return this.http.put(this.url, ta);
+  }
+
+  getcantidaddetareasreliadas(): Observable<TareaTotalRelizadaDTO[]>{
+    return this.http.get<TareaTotalRelizadaDTO[]>(`${this.url}/tareasconrealizacion`);
   }
 }

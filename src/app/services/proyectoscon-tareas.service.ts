@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { ProyectosconTareas } from '../models/ProyectosconTareas';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { CantidaDeUsuarioConTareasyProyectosDTO } from '../models/CantidaDeUsuarioConTareasyProyectosDTO';
 
 const base_url = environment.base;
 
@@ -41,4 +42,9 @@ export class ProyectosconTareasService {
   update(pro: ProyectosconTareas) {
     return this.http.put(this.url, pro);
   }
+
+  getusuarioscontareasyproyectos(): Observable<CantidaDeUsuarioConTareasyProyectosDTO[]> {
+    return this.http.get<CantidaDeUsuarioConTareasyProyectosDTO[]>(`${this.url}/CantidadDeUusarioConTareasYPoryectos`);
+  }
+  
 }

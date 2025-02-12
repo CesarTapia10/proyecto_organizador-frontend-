@@ -19,6 +19,10 @@ import { CreareditarproyectosContareasComponent } from './components/proyectosco
 import { RolesComponent } from './components/roles/roles.component';
 import { CreareditarrolesComponent } from './components/roles/creareditarroles/creareditarroles.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
+import { ReportestareasconproyectosComponent } from './components/reportes/reportestareasconproyectos/reportestareasconproyectos.component';
+import { ReportescomentarioComponent } from './components/reportes/reportescomentario/reportescomentario.component';
+import { ReportestareasComponent } from './components/reportes/reportestareas/reportestareas.component';
 
 
 
@@ -67,6 +71,25 @@ export const routes: Routes = [
           {
             path: 'ediciones/:id',
             component: CreareditarTareasComponent,
+          },
+        ],
+        canActivate: [seguridadGuard],
+      },
+      {
+        path: 'reportes',
+        component: ReportesComponent,
+        children: [
+          {
+            path: 'ReportesDeTareas',
+            component: ReportestareasComponent,
+          },
+          {
+            path: 'ReportesDeComentarios',
+            component: ReportescomentarioComponent,
+          },
+          {
+            path: 'ReportesDeTareasConProyectos',
+            component: ReportestareasconproyectosComponent,
           },
         ],
         canActivate: [seguridadGuard],

@@ -21,8 +21,11 @@ export const appConfig: ApplicationConfig = {
       JwtModule.forRoot({
         config: {
           tokenGetter: tokenGetter,
-          allowedDomains: ['localhost:8081'],
-          disallowedRoutes: ['http://localhost:8081/login/forget'],
+          allowedDomains: ['localhost:8081', 'ego-task-backend.onrender.com'],
+          disallowedRoutes: ['http://localhost:8081/login/forget', 'https://ego-task-backend.onrender.com/login/forget'],
+          //https://ego-task-backend.onrender.com
+         // allowedDomains: ['localhost:8081'],
+         // disallowedRoutes: ['http://localhost:8081/login/forget'],
         },
       })
     )

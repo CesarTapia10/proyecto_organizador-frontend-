@@ -28,19 +28,22 @@
     <div class="menu-section" *ngIf="esUsuario()">
       <h4>Contenido</h4>
       <button mat-button [matMenuTriggerFor]="menuAVItareas">
-        <mat-icon>library_add</mat-icon>Tareas
+        <mat-icon>work</mat-icon>Tareas
       </button>
       <button mat-button [matMenuTriggerFor]="menuAVIproyectoscontareas">
-        <mat-icon>library_add</mat-icon>Proyectos con tareas
+        <mat-icon>group_add</mat-icon>Proyectos con tareas
       </button>
       <button mat-button [matMenuTriggerFor]="menuAVIproyectos">
-        <mat-icon>layers</mat-icon>Proyectos
+        <mat-icon>group</mat-icon>Proyectos
       </button>
       <button mat-button [matMenuTriggerFor]="menuAVIcomentarios">
-        <mat-icon>layers</mat-icon>Comentarios
+        <mat-icon>speaker_notes</mat-icon>Comentarios
       </button>
       <button mat-button [matMenuTriggerFor]="menuAVIcolaboradores">
-        <mat-icon>layers</mat-icon>Colaboradores
+        <mat-icon>person_add</mat-icon>Colaboradores
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuAVIreportes">
+        <mat-icon>poll</mat-icon>Reportes
       </button>
     </div>
   </mat-drawer>
@@ -79,6 +82,12 @@
   <mat-menu #menuAVIRoles="matMenu">
     <button mat-menu-item routerLink="/roles">Ver Roles</button>
     <button mat-menu-item routerLink="/roles/nuevo">Asignar Rol a Usuario</button>
+  </mat-menu>
+
+  <mat-menu #menuAVIreportes="matMenu">
+    <button mat-menu-item routerLink="/reportes/ReportesDeTareas">Ver reportes de tareas realizadas </button>
+    <button mat-menu-item routerLink="/reportes/ReportesDeComentarios">Ver reportes de comentarios de usuarios</button>
+    <button mat-menu-item routerLink="/reportes/ReportesDeTareasConProyectos">Ver reportes de uusarioa con tareas y proyectos</button>
   </mat-menu>
 
   <mat-menu #menuSalir="matMenu">

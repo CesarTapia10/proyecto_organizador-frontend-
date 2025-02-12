@@ -15,8 +15,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 
 
+
 @Component({
   selector: 'app-sing-up',
+  standalone: true,
   imports: [
     MatInputModule, 
     MatIconModule,
@@ -32,7 +34,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './sing-up.component.html',
   styleUrl: './sing-up.component.css'
 })
-export class SingUpComponent {
+export class SingUpComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   usuario: Usuario = new Usuario();
   rol: roles = new roles();
@@ -63,7 +65,6 @@ export class SingUpComponent {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      hid: [],
       hnombre: ['', Validators.required],
       hpass: ['', [Validators.required, Validators.minLength(6)]],
       hmail: ['', [Validators.required, Validators.email]],
@@ -80,34 +81,45 @@ export class SingUpComponent {
   }
 
 
-  createRoleForUser(userId: number): void {
-
-    const newRole = new roles();
-    newRole.rol = 'USUARIO'; 
-    newRole.user = { id: userId } as Usuario;
-
-    this.rS.insert(newRole).subscribe((data) => {
-      this.rS.list().subscribe((data) => {
-        this.rS.setList(data);
-      });
-    });
-  }
-
-  insertar(): void {
+  insertar() {
     if (this.form.valid) {
 
-      this.usuario.id= this.usuario.id;
       this.usuario.username = this.form.value.hnombre;
       this.usuario.email = this.form.value.hmail;
       this.usuario.password = this.form.value.hpass;
       this.usuario.pais=this.form.value.hpais;
-      this.usuario.enabled = this.form.value.henabled;;
-      this.usuario.fecha_registro = this.form.value.hfecha_registro; // Fecha actual
-      this.usuario.fecha_modificacion = this.form.value.hfecha_modificacion; // Fecha actual
+      this.usuario.enabled = true;
+      this.usuario.fecha_registro = new Date(); // Fecha actual
+      this.usuario.fecha_modificacion = new Date(); // Fecha actual
 
 
       
       // Insertar el usuario y esperar la respuesta antes de continuar
+     /* this.uS.insert(this.usuario).subscribe({
+        next: () => {
+          this.uS.listNoAuth(this.usuario.email).subscribe(response=> {
+            console.log("El id del nuevo usuario es ", response.id);
+            const insert = new roles();
+            const idU = new Usuario();
+            idU.id = response.id;
+
+            insert.rol = 'USUARIO';
+            insert.user = idU;
+
+            this.rS.insert(insert).subscribe({
+              next: () => {
+                this.router.navigate(['/login']);
+              },
+              error: (err) => {
+                console.error('Error inserting role:', err);
+              }
+            });
+          });
+        },
+        error: (err) => {
+          console.error('Error inserting user:', err);
+        }
+      });*/
       this.uS.insert(this.usuario).subscribe((newUser: Usuario) => {
         if (newUser && newUser.id) {
           console.log('Usuario creado:', newUser);
@@ -115,16 +127,32 @@ export class SingUpComponent {
           this.uS.list().subscribe((data) => {
             this.uS.setList(data);
           });
-          this.router.navigate(['login']);
-        } 
-        else {
+          this.router.navigate(['/login']);
+        } else {
           console.error('Error: Usuario no creado correctamente');
         }
       }, error => {
         console.error('Error al crear usuario:', error);
       });
+    } else {
+      console.log('Form is invalid');
     }
-  
+  }
+
+  createRoleForUser(userId: number) {
+
+    const newRole = new roles();
+    newRole.rol = 'USUARIO';
+    newRole.user = { id: userId } as Usuario;
+    
+    this.rS.insert(newRole).subscribe({
+      next: (data) => {
+        console.log('Rol asignado correctamente:', data);
+      },
+      error: (err) => {
+        console.error('Error al asignar rol:', err);
+      }
+    });
   }
 
   

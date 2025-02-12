@@ -1,5 +1,6 @@
 export const environment={
     production:false,
-    base:"http://localhost:8081"
+    base: "https://ego-task-backend.onrender.com"
+    //base:"http://localhost:8081"
 
 }

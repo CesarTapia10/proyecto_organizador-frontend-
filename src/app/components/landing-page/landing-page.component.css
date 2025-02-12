@@ -204,7 +204,7 @@ footer a:hover {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #000000, #999999);
+  background: linear-gradient(to bottom, #412a64, #999999);
   color: #333;
 }
 
@@ -305,9 +305,9 @@ header {
   margin-bottom: 2rem;
   background: linear-gradient( #9b9999, rgb(204, 204, 204), rgb(219, 219, 219), #ffffff);
   background-image: linear-gradient(
-    rgba(78, 77, 77, 0.849),
+    rgba(109, 88, 163, 0.849),
     rgba(134, 73, 231, 0.233)),
-    url(https://i.pinimg.com/564x/ab/f1/7c/abf17c5c30a72c218e5520140eeb7dfb.jpg);
+    url(https://t3.ftcdn.net/jpg/04/71/00/20/360_F_471002062_tCBbTqeeMhHgMfCW86mQhdgpETooy3ID.jpg);
   position: relative;
 
   background-position: center;
@@ -319,7 +319,7 @@ header {
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #3600f8;
+  color: #ffffff;
 }
 
 .hero p {
@@ -358,13 +358,17 @@ header {
   gap: 1.5rem;
   justify-content: space-evenly;
   background-image: linear-gradient(
-    rgba(76, 76, 77, 0.7),
-    rgba(36, 30, 49, 0.5)),
+    rgba(0, 0, 0, 0.548),
+    rgba(114, 73, 202, 0.5),
+    rgba(72, 62, 94, 0.5),
+    rgba(255, 255, 255, 0.459),
+    rgba(0, 0, 0, 0.5)),
+    
     url(https://st2.depositphotos.com/4112313/7141/v/450/depositphotos_71411393-stock-illustration-books-library-seamless-pattern-reading.jpg);
   min-height: 60dvh;
   grid-template-rows: auto 1fr aout;
   background-position: center;
-
+  
 
 }
 
@@ -376,7 +380,7 @@ header {
   padding: 1.5rem;
   height: 12%;
   flex: 1;
-  box-shadow: 0 6px 110px rgba(21, 255, 0, 0.555);
+  box-shadow: 0 6px 110px rgba(43, 92, 255, 0.555);
   text-align: center;
   transition: transform 0.3s ;
   margin: 100px 30px; 
@@ -466,6 +470,8 @@ a{
   top: 0%;
   right: 0;
   max-width: 10%;
+ 
+
 
 
 }
